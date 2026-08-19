@@ -4,8 +4,8 @@ vim.pack.add({
 	"https://github.com/nvim-neotest/nvim-nio", -- required by nvim-dap-ui
 	"https://github.com/rcarriga/nvim-dap-ui",
 	"https://github.com/Mathijs-Bakker/godotdev.nvim",
-	"https://github.com/arborist-ts/arborist.nvim",
 	"https://github.com/nvim-mini/mini.pairs",
+	"https://github.com/nvim-treesitter/nvim-treesitter"
 })
 
 -- dapui
@@ -20,12 +20,6 @@ require("godotdev").setup({
 	editor_port = 6005,
 	debug_port = 6006,
 	formatter = false,
-})
-
--- arborist
-require("arborist").setup({
-	update_cadence = "weekly",
-	install_popular = false
 })
 
 -- mini
