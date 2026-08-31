@@ -27,3 +27,6 @@ vim.lsp.enable('jdtls')
 
 -- kotlin
 vim.lsp.enable('kotlin_language_server')
+
+-- rust
+vim.lsp.enable('rust_analyzer')
