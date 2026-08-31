@@ -33,3 +33,6 @@ vim.lsp.enable('kotlin_language_server')
 
 -- rust
 vim.lsp.enable('rust_analyzer')
+
+-- slint
+vim.lsp.enable('slint_lsp')
