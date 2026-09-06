@@ -22,6 +22,9 @@ vim.lsp.enable('lua_ls')
 -- c
 vim.lsp.enable('clangd')
 
+-- go
+vim.lsp.enable('gopls')
+
 -- java
 vim.lsp.enable('jdtls')
 
