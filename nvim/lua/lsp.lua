@@ -43,5 +43,8 @@ vim.lsp.enable('cssls')
 -- html
 vim.lsp.enable('html')
 
+-- typescript
+vim.lsp.enable('tsc')
+
 -- typst
 vim.lsp.enable('tinymist')

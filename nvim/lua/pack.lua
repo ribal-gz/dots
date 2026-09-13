@@ -5,7 +5,8 @@ vim.pack.add({
 	"https://github.com/rcarriga/nvim-dap-ui",
 	"https://github.com/Mathijs-Bakker/godotdev.nvim",
 	"https://github.com/nvim-mini/mini.pairs",
-	"https://github.com/nvim-treesitter/nvim-treesitter"
+	"https://github.com/nvim-treesitter/nvim-treesitter",
+	"https://github.com/windwp/nvim-ts-autotag"
 })
 
 -- dapui
@@ -24,3 +25,6 @@ require("godotdev").setup({
 
 -- mini
 require("mini.pairs").setup()
+
+-- autotag
+require("nvim-ts-autotag").setup()
