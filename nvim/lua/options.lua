@@ -29,6 +29,14 @@ vim.opt.textwidth = 80
 vim.opt.colorcolumn = "80"    -- Highlight column 80
 vim.opt.laststatus = 3        -- Single statusline across windows
 
+-- Visual markers
+vim.opt.listchars = {
+	tab = '› ',           -- Tab starts
+	space = '·',          -- Regular spaces
+	trail = '·'           -- Trailing whitespaces
+}
+vim.opt.list = true           -- Enable markers
+
 -- File handling
 vim.opt.backup = false        -- Disable backup file
 vim.opt.writebackup = false   -- Don't create backup before writing

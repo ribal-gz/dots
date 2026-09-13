@@ -12,6 +12,8 @@ vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv", { desc = "Moves lines up in visual 
 vim.keymap.set("v", "<", "<gv", { desc = "Unindent and keep selection" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent and keep selection" })
 
+vim.keymap.set("", "<F5>", ":set list! list?<CR>", { desc = "Toggle invisible characters visibility and status" })
+
 -- native undotree
 vim.keymap.set("n", "<leader>u", function()
 	vim.cmd.packadd("nvim.undotree")
