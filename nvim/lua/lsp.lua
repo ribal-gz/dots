@@ -36,3 +36,12 @@ vim.lsp.enable('rust_analyzer')
 
 -- slint
 vim.lsp.enable('slint_lsp')
+
+-- css
+vim.lsp.enable('cssls')
+
+-- html
+vim.lsp.enable('html')
+
+-- typst
+vim.lsp.enable('tinymist')
