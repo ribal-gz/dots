@@ -6,7 +6,8 @@ vim.pack.add({
 	"https://github.com/Mathijs-Bakker/godotdev.nvim",
 	"https://github.com/nvim-mini/mini.pairs",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
-	"https://github.com/windwp/nvim-ts-autotag"
+	"https://github.com/windwp/nvim-ts-autotag",
+	"https://github.com/MeanderingProgrammer/render-markdown.nvim"
 })
 
 -- dapui
@@ -28,3 +29,6 @@ require("mini.pairs").setup()
 
 -- autotag
 require("nvim-ts-autotag").setup()
+
+-- render-markdown
+require("render-markdown").setup()
