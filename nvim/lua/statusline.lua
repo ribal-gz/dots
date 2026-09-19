@@ -23,6 +23,8 @@ function _G._statusline()
 	local branch = vim.b.git_branch and "%#StlGit# " .. vim.b.git_branch .. " %*" or ""
 	local path = vim.b.rel_path or "%f"
 
+	local progress = vim.ui.progress_status()
+
 	local diag = ""
 	local counts = vim.diagnostic.count(0) or {}
 	local labels = { " ", " ", " ", " " }
@@ -33,7 +35,7 @@ function _G._statusline()
 		end
 	end
 
-	return "%#StlMode# " .. mode .. " %*" .. branch .. " " .. path .. "%=" .. diag .. vim.bo.filetype .. " %l:%c"
+	return "%#StlMode# " .. mode .. " %*" .. branch .. " " .. path .. "%=" .. progress .. diag .. vim.bo.filetype .. " %l:%c"
 end
 
 vim.api.nvim_create_autocmd("BufEnter", {

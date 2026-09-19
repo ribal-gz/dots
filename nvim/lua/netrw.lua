@@ -5,3 +5,12 @@ vim.g.netrw_browse_split = 0 -- open files in the previous window
 vim.g.netrw_altfile = 1      -- keep the alternate files correct
 
 vim.keymap.set("n", "<leader>e", ":Lexplore<cr>", { silent = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "netrw",
+	callback = function(args)
+		local opts = { buffer = args.buf, silent = true }
+		vim.keymap.set("n", "q", ":Lexplore<cr>", opts)
+		vim.keymap.set("n", "<esc>", ":Lexplore<cr>", opts)
+	end,
+})
