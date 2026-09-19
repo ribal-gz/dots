@@ -1,0 +1,147 @@
+.left: &left
+  - script:
+      path: ~/.config/yambar/scripts/workspaces.sh
+      args: ['HDMI-A-1']
+      content:
+        - map:
+            default:
+              string: {text: "", margin: 8, foreground: 434343ff, on-click: "mmsg dispatch view,1"}
+            conditions:
+              "show1 && active1":
+                string: {text: "", margin: 8, foreground: eab532ff, on-click: "mmsg dispatch view,1"}
+              "show1 && urgent1":
+                string: {text: "", margin: 8, foreground: ca6789ff, on-click: "mmsg dispatch view,1"}
+              show1:
+                string: {text: "", margin: 8, foreground: ffffffff, on-click: "mmsg dispatch view,1"}
+        - map:
+            default:
+              string: {text: "", margin: 8, foreground: 434343ff, on-click: "mmsg dispatch view,2"}
+            conditions:
+              "show2 && active2":
+                string: {text: "", margin: 8, foreground: eab532ff, on-click: "mmsg dispatch view,2"}
+              "show2 && urgent2":
+                string: {text: "", margin: 8, foreground: ca6789ff, on-click: "mmsg dispatch view,2"}
+              show2:
+                string: {text: "", margin: 8, foreground: ffffffff, on-click: "mmsg dispatch view,2"}
+        - map:
+            default:
+              string: {text: "", margin: 8, foreground: 434343ff, on-click: "mmsg dispatch view,3"}
+            conditions:
+              "show3 && active3":
+                string: {text: "", margin: 8, foreground: eab532ff, on-click: "mmsg dispatch view,3"}
+              "show3 && urgent3":
+                string: {text: "", margin: 8, foreground: ca6789ff, on-click: "mmsg dispatch view,3"}
+              show3:
+                string: {text: "", margin: 8, foreground: ffffffff, on-click: "mmsg dispatch view,3"}
+        - map:
+            default:
+              string: {text: "", margin: 8, foreground: 434343ff, on-click: "mmsg dispatch view,4"}
+            conditions:
+              "show4 && active4":
+                string: {text: "", margin: 8, foreground: eab532ff, on-click: "mmsg dispatch view,4"}
+              "show4 && urgent4":
+                string: {text: "", margin: 8, foreground: ca6789ff, on-click: "mmsg dispatch view,4"}
+              show4:
+                string: {text: "", margin: 8, foreground: ffffffff, on-click: "mmsg dispatch view,4"}
+        - map:
+            default:
+              string: {text: "", margin: 8, foreground: 434343ff, on-click: "mmsg dispatch view,5"}
+            conditions:
+              "show5 && active5":
+                string: {text: "", margin: 8, foreground: eab532ff, on-click: "mmsg dispatch view,5"}
+              "show5 && urgent5":
+                string: {text: "", margin: 8, foreground: ca6789ff, on-click: "mmsg dispatch view,5"}
+              show5:
+                string: {text: "", margin: 8, foreground: ffffffff, on-click: "mmsg dispatch view,5"}
+        - map:
+            default:
+              string: {text: "", margin: 8, foreground: 434343ff, on-click: "mmsg dispatch view,6"}
+            conditions:
+              "show6 && active6":
+                string: {text: "", margin: 8, foreground: eab532ff, on-click: "mmsg dispatch view,6"}
+              "show6 && urgent6":
+                string: {text: "", margin: 8, foreground: ca6789ff, on-click: "mmsg dispatch view,6"}
+              show6:
+                string: {text: "", margin: 8, foreground: ffffffff, on-click: "mmsg dispatch view,6"}
+        - map:
+            default:
+              string: {text: "", margin: 8, foreground: 434343ff, on-click: "mmsg dispatch view,7"}
+            conditions:
+              "show7 && active7":
+                string: {text: "", margin: 8, foreground: eab532ff, on-click: "mmsg dispatch view,7"}
+              "show7 && urgent7":
+                string: {text: "", margin: 8, foreground: ca6789ff, on-click: "mmsg dispatch view,7"}
+              show7:
+                string: {text: "", margin: 8, foreground: ffffffff, on-click: "mmsg dispatch view,7"}
+        - map:
+            default:
+              string: {text: "", margin: 8, foreground: 434343ff, on-click: "mmsg dispatch view,8"}
+            conditions:
+              "show8 && active8":
+                string: {text: "", margin: 8, foreground: eab532ff, on-click: "mmsg dispatch view,8"}
+              "show8 && urgent8":
+                string: {text: "", margin: 8, foreground: ca6789ff, on-click: "mmsg dispatch view,8"}
+              show8:
+                string: {text: "", margin: 8, foreground: ffffffff, on-click: "mmsg dispatch view,8"}
+        - map:
+            default:
+              string: {text: "", margin: 8, foreground: 434343ff, on-click: "mmsg dispatch view,9"}
+            conditions:
+              "show9 && active9":
+                string: {text: "", margin: 8, foreground: eab532ff, on-click: "mmsg dispatch view,9"}
+              "show9 && urgent9":
+                string: {text: "", margin: 8, foreground: ca6789ff, on-click: "mmsg dispatch view,9"}
+              show9:
+                string: {text: "", margin: 8, foreground: ffffffff, on-click: "mmsg dispatch view,9"}
+
+.right: &right
+  - script:
+      path: ~/.config/yambar/scripts/updates.sh
+      poll-interval: 60000
+      content:
+        string:
+          text: " {output}"
+          foreground: "088eafff"
+          on-click: "footclient apk-menu"
+  - label:
+      content: {string: {text: " | ", foreground: "434343ff"}}
+  - script:
+      path: ~/.config/yambar/scripts/memory.sh
+      poll-interval: 30000
+      content:
+        string:
+          text: " {output}"
+          foreground: "a47fc6ff"
+          on-click: "footclient htop"
+  - label:
+      content: {string: {text: " | ", foreground: "434343ff"}}
+  - clock:
+      date-format: "%b %d (%a)"
+      content:
+        string:
+          text: " {date}"
+          foreground: "6e9a5dff"
+  - label:
+      content: {string: {text: " | ", foreground: "434343ff"}}
+  - clock:
+      time-format: "%I:%M%p"
+      content:
+        string:
+          text: " {time}"
+          foreground: "59aa90ff"
+
+.bar: &bar
+  location: top
+  layer: top
+  height: 30
+  background: 000000ff
+  foreground: b2b2b2ff
+  font: "DejaVuSansM Nerd Font Mono:pixelsize=24"
+  spacing: 6
+
+  left: *left
+  right: *right
+
+bar:
+  <<: *bar
+  monitor: 'HDMI-A-1'
