@@ -8,6 +8,7 @@ vim.pack.add({
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/windwp/nvim-ts-autotag",
 	"https://github.com/MeanderingProgrammer/render-markdown.nvim",
+	"https://github.com/wansmer/treesj",
 	{
 		src = "https://github.com/nickjvandyke/opencode.nvim",
 		version = vim.version.range("*"), -- latest stable release
@@ -36,6 +37,10 @@ require("nvim-ts-autotag").setup()
 
 -- render-markdown
 require("render-markdown").setup()
+
+-- treesj
+require("treesj").setup()
+vim.keymap.set("n", "<leader>m", require("treesj").toggle)
 
 -- opencode
 ---@type opencode.Opts
