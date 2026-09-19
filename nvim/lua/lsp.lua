@@ -49,6 +49,9 @@ vim.lsp.enable('tsc')
 -- typst
 vim.lsp.enable('tinymist')
 
+-- svelte
+vim.lsp.enable('svelte')
+
 -- markdown-oxide
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 vim.lsp.config('markdown_oxide', {
