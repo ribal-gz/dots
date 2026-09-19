@@ -1,5 +1,8 @@
 require("ui")
 require("options")
+
+vim.cmd.colorscheme("chroma")
+
 require("autocmds")
 require("keymaps")
 require("diagnostics")
