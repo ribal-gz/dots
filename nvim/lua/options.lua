@@ -61,5 +61,5 @@ vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"
 
 -- Buffer completion
-vim.opt.completeopt = "menuone,noselect,fuzzy,nosort,noinsert"
+vim.opt.completeopt = "menuone,noselect,fuzzy,nosort,noinsert,popup"
 vim.opt.autocomplete = true   -- Native insert-mode completion
