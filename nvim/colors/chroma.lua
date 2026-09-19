@@ -84,6 +84,8 @@ local function palette(bg)
 	return p
 end
 
+local plugin_groups
+
 local function groups(v)
 	local h = {}
 
@@ -378,6 +380,133 @@ local function groups(v)
 
 	h.DiagnosticUnnecessary = { fg = v.muted }
 	h.DiagnosticDeprecated = { strikethrough = true }
+
+	-- Plugins -------------------------------------------------------------
+	for name, attr in pairs(plugin_groups(v)) do
+		h[name] = attr
+	end
+
+	return h
+end
+
+plugin_groups = function(v)
+	local h = {}
+
+	-- render-markdown.nvim ------------------------------------------------
+	h.RenderMarkdownH1 = { fg = v.fg_max, bold = true }
+	h.RenderMarkdownH2 = { fg = v.fg_highlight, bold = true }
+	h.RenderMarkdownH3 = { fg = v.fg_highlight, bold = true }
+	h.RenderMarkdownH4 = { fg = v.fg, bold = true }
+	h.RenderMarkdownH5 = { fg = v.fg_secondary, bold = true }
+	h.RenderMarkdownH6 = { fg = v.muted, bold = true }
+
+	h.RenderMarkdownH1Bg = { bg = v.tint_accent }
+	h.RenderMarkdownH2Bg = { bg = v.surface }
+	h.RenderMarkdownH3Bg = { bg = v.surface }
+	h.RenderMarkdownH4Bg = { bg = v.surface }
+	h.RenderMarkdownH5Bg = { bg = v.surface }
+	h.RenderMarkdownH6Bg = { bg = v.surface }
+
+	h.RenderMarkdownCode = { fg = v.fg, bg = v.surface }
+	h.RenderMarkdownCodeBorder = { fg = v.selection, bg = v.surface }
+	h.RenderMarkdownCodeFallback = { link = "Normal" }
+	h.RenderMarkdownCodeInline = { fg = v.fg_highlight, bg = v.surface }
+	h.RenderMarkdownCodeInfo = { fg = v.accent, bg = v.surface }
+	h.RenderMarkdownCodeLanguage = { fg = v.muted, bg = v.surface }
+
+	h.RenderMarkdownQuote = { fg = v.muted, italic = true }
+	h.RenderMarkdownQuote1 = { fg = v.selection }
+	h.RenderMarkdownQuote2 = { fg = v.selection }
+	h.RenderMarkdownQuote3 = { fg = v.selection }
+	h.RenderMarkdownQuote4 = { fg = v.selection }
+	h.RenderMarkdownQuote5 = { fg = v.selection }
+	h.RenderMarkdownQuote6 = { fg = v.selection }
+
+	h.RenderMarkdownInlineHighlight = { fg = v.fg_max, bg = v.tint_accent }
+	h.RenderMarkdownBullet = { fg = v.accent }
+	h.RenderMarkdownDash = { fg = v.selection }
+	h.RenderMarkdownSign = { bg = v.bg }
+	h.RenderMarkdownMath = { fg = v.cyan }
+	h.RenderMarkdownIndent = { fg = v.selection }
+	h.RenderMarkdownHtmlComment = { fg = v.muted, italic = true }
+	h.RenderMarkdownPadding = {}
+
+	h.RenderMarkdownLink = { fg = v.violet, underline = true }
+	h.RenderMarkdownLinkTitle = { fg = v.violet }
+	h.RenderMarkdownWikiLink = { fg = v.violet, underline = true }
+
+	h.RenderMarkdownUnchecked = { fg = v.fg_secondary }
+	h.RenderMarkdownChecked = { fg = v.green }
+	h.RenderMarkdownTodo = { fg = v.bg, bg = v.accent, bold = true }
+
+	h.RenderMarkdownTableHead = { fg = v.fg_max, bg = v.surface, bold = true }
+	h.RenderMarkdownTableRow = { fg = v.fg }
+
+	h.RenderMarkdownSuccess = { fg = v.green }
+	h.RenderMarkdownInfo = { fg = v.cyan }
+	h.RenderMarkdownHint = { fg = v.green }
+	h.RenderMarkdownWarn = { fg = v.orange }
+	h.RenderMarkdownError = { fg = v.red }
+
+	-- nvim-dap-ui ---------------------------------------------------------
+	h.DapUINormal = { fg = v.fg, bg = v.surface }
+	h.DapUIVariable = { fg = v.fg, bg = v.surface }
+	h.DapUIScope = { fg = v.accent, bg = v.surface }
+	h.DapUIType = { fg = v.fg_highlight, bg = v.surface }
+	h.DapUIValue = { fg = v.fg, bg = v.surface }
+	h.DapUIModifiedValue = { fg = v.orange, bg = v.surface, bold = true }
+	h.DapUIDecoration = { fg = v.selection, bg = v.surface }
+	h.DapUIThread = { fg = v.green, bg = v.surface }
+	h.DapUIStoppedThread = { fg = v.orange, bg = v.surface, bold = true }
+	h.DapUIFrameName = { fg = v.fg, bg = v.surface }
+	h.DapUISource = { fg = v.fg_secondary, bg = v.surface }
+	h.DapUILineNumber = { fg = v.muted, bg = v.surface }
+	h.DapUIFloatNormal = { fg = v.fg, bg = v.surface }
+	h.DapUIFloatBorder = { fg = v.muted, bg = v.surface }
+	h.DapUIWatchesEmpty = { fg = v.muted, bg = v.surface }
+	h.DapUIWatchesValue = { fg = v.green, bg = v.surface }
+	h.DapUIWatchesError = { fg = v.red, bg = v.surface }
+	h.DapUIBreakpointsPath = { fg = v.accent, bg = v.surface }
+	h.DapUIBreakpointsInfo = { fg = v.fg_secondary, bg = v.surface }
+	h.DapUIBreakpointsCurrentLine = { fg = v.accent, bg = v.surface, bold = true }
+	h.DapUIBreakpointsLine = { fg = v.muted, bg = v.surface }
+	h.DapUIBreakpointsDisabledLine = { fg = v.muted, bg = v.surface }
+	h.DapUICurrentFrameName = { fg = v.accent, bg = v.surface, bold = true }
+	h.DapUIStepOver = { fg = v.fg, bg = v.surface }
+	h.DapUIStepInto = { fg = v.fg, bg = v.surface }
+	h.DapUIStepBack = { fg = v.fg, bg = v.surface }
+	h.DapUIStepOut = { fg = v.fg, bg = v.surface }
+	h.DapUIStop = { fg = v.red, bg = v.surface }
+	h.DapUIPlayPause = { fg = v.green, bg = v.surface }
+	h.DapUIRestart = { fg = v.green, bg = v.surface }
+	h.DapUIUnavailable = { fg = v.selection, bg = v.surface }
+	h.DapUIWinSelect = { fg = v.accent, bg = v.surface, bold = true }
+	h.DapUIEndOfBuffer = { fg = v.bg, bg = v.surface }
+
+	h.DapUIStepOverNC = { fg = v.muted, bg = v.surface }
+	h.DapUIStepIntoNC = { fg = v.muted, bg = v.surface }
+	h.DapUIStepBackNC = { fg = v.muted, bg = v.surface }
+	h.DapUIStepOutNC = { fg = v.muted, bg = v.surface }
+	h.DapUIStopNC = { fg = v.selection, bg = v.surface }
+	h.DapUIPlayPauseNC = { fg = v.muted, bg = v.surface }
+	h.DapUIRestartNC = { fg = v.muted, bg = v.surface }
+	h.DapUIUnavailableNC = { fg = v.selection, bg = v.surface }
+
+	-- opencode.nvim -------------------------------------------------------
+	h.OpencodeContextPlaceholder = { fg = v.muted, italic = true }
+	h.OpencodeContextValue = { fg = v.fg_highlight }
+	h.OpencodeAgent = { fg = v.accent }
+
+	-- godotdev.nvim -------------------------------------------------------
+	h.GodotSceneTreeIcon = { fg = v.fg }
+	h.GodotSceneTreeHeader = { fg = v.fg_max, bg = v.surface, bold = true }
+	h.GodotSceneTreeIconWhite = { fg = v.fg_max }
+	h.GodotSceneTreeIconGrey = { fg = v.fg_secondary }
+	h.GodotSceneTreeIconBlue = { fg = v.blue }
+	h.GodotSceneTreeIconRed = { fg = v.red }
+	h.GodotSceneTreeIconGreen = { fg = v.green }
+	h.GodotSceneTreeIconPurple = { fg = v.magenta }
+	h.GodotSceneTreeIconYellow = { fg = v.yellow }
 
 	return h
 end
