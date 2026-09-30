@@ -18,6 +18,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # Aliases
 # ---------------------------------------------------------------------------
 [ -f "$HOME/.config/shell/alias" ] && . "$HOME/.config/shell/alias"
+alias reload="source ${ZDOTDIR}/.zshrc && rehash"
 
 # ---------------------------------------------------------------------------
 # Prompt
