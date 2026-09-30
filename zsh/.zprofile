@@ -1,5 +1,1 @@
-# Login shell profile.
-#
-# POSIX environment shared with other shells lives in ~/.profile. zsh only
-# sources ~/.zprofile (not ~/.profile), so pull it in here.
-[ -f "$HOME/.profile" ] && . "$HOME/.profile"
+# Empty on purpose: .zshenv already sources ~/.profile for login shells too.

@@ -11,3 +11,9 @@ export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 
 # History file
 HISTFILE="${XDG_DATA_HOME}/zsh/history"
+
+# Re-source ~/.profile
+# typeset -U dedupes PATH.
+typeset -U path PATH
+[ -r "$HOME/.profile" ] && . "$HOME/.profile"
+typeset -U path PATH
