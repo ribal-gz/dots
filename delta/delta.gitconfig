@@ -1,0 +1,55 @@
+# chroma theme for delta (docs/colorscheme.md).
+# Monochromatic UI; semantic colors only convey information.
+# Activo por defecto: chroma-dark. Para la variante clara cambia
+# `features` a chroma-light (y quita `light = false` de ~/.gitconfig,
+# el tema ya fija light/dark por variante).
+[delta]
+	features = chroma-dark
+	navigate = true
+	light = false
+
+[delta "chroma-dark"]
+	dark = true
+	syntax-theme = chroma-dark
+	file-style = "#ffffff bold"
+	file-decoration-style = "#434343"
+	hunk-header-style = "#858585 line-number"
+	hunk-header-line-number-style = "#15e1d7"
+	hunk-header-decoration-style = "#1e1e1e"
+	commit-style = "#cfcfcf bold"
+	zero-style = syntax
+	minus-style = syntax "#2b0e18"
+	minus-emph-style = syntax "#571026" bold
+	plus-style = syntax "#0b2b14"
+	plus-emph-style = syntax "#104d22" bold
+	line-numbers-minus-style = "#ffa6c2"
+	line-numbers-plus-style = "#99d97c"
+	line-numbers-zero-style = "#434343"
+	line-numbers-left-style = "#434343"
+	grep-file-style = "#b2c0fe bold"
+	grep-line-number-style = "#434343"
+	grep-match-line-style = "#1e1e1e #d3c850"
+	grep-match-word-style = "#000000 #d3c850"
+
+[delta "chroma-light"]
+	light = true
+	syntax-theme = chroma-light
+	file-style = "#000000 bold"
+	file-decoration-style = "#858585"
+	hunk-header-style = "#1e1e1e line-number"
+	hunk-header-line-number-style = "#068680"
+	hunk-header-decoration-style = "#b2b2b2"
+	commit-style = "#0a0a0a bold"
+	zero-style = syntax
+	minus-style = syntax "#f6dce5"
+	minus-emph-style = syntax "#eec0d0" bold
+	plus-style = syntax "#e0ecd6"
+	plus-emph-style = syntax "#c4ddb2" bold
+	line-numbers-minus-style = "#bc336e"
+	line-numbers-plus-style = "#367702"
+	line-numbers-zero-style = "#858585"
+	line-numbers-left-style = "#858585"
+	grep-file-style = "#4f5cd1 bold"
+	grep-line-number-style = "#858585"
+	grep-match-line-style = "#000000 #807704"
+	grep-match-word-style = "#000000 #807704"
