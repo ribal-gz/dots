@@ -29,7 +29,6 @@ export PATH="$PATH:$GOBIN"
 
 #export GIT_SSH=gitssh
 export DOAS_ASKPASS=askpass
-export BAT_THEME=gruvbox-dark
 export PAGER="${PAGER:-bat}"
 export EDITOR="${EDITOR:-nvim}"
 
