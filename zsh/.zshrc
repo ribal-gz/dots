@@ -15,6 +15,13 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # ---------------------------------------------------------------------------
+# History (native file; atuin keeps its own db in parallel for Ctrl-R)
+# ---------------------------------------------------------------------------
+HISTSIZE=100000
+SAVEHIST=100000
+setopt APPEND_HISTORY SHARE_HISTORY HIST_IGNORE_DUPS HIST_REDUCE_BLANKS
+
+# ---------------------------------------------------------------------------
 # Aliases
 # ---------------------------------------------------------------------------
 [ -f "$HOME/.config/shell/alias" ] && . "$HOME/.config/shell/alias"
@@ -63,8 +70,28 @@ add-zsh-hook -Uz precmd precmd-osc133
 osc7-pwd
 
 # ---------------------------------------------------------------------------
-# Plugins (order matters: syntax-highlighting must be sourced last)
+# fzf (fd backend: faster, respects .gitignore)
 # ---------------------------------------------------------------------------
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude .git . "$1"
+}
+
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude .git . "$1"
+}
+
+# ---------------------------------------------------------------------------
+# Plugins (order matters: fzf-tab after compinit but before widget-wrapping
+# plugins; syntax-highlighting must be sourced last)
+# ---------------------------------------------------------------------------
+# fzf-tab: fuzzy completion menu for normal Tab (** still opens the
+# official fzf UI, handled by completion.zsh below).
+source "$ZDOTDIR/plugins/fzf-tab/fzf-tab.plugin.zsh"
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # fzf key bindings and fuzzy completion
@@ -99,19 +126,40 @@ function zvm_config() {
   ZVM_VI_HIGHLIGHT_EXTRASTYLE='default'
 }
 
-# zsh-vi-mode overwrites keybindings on init; restore fzf and atuin
-# afterwards, so atuin's Ctrl-R wins over fzf's in vi mode.
+# zsh-vi-mode overwrites keybindings on init; re-apply afterwards.
+# History belongs to atuin: fzf is unbound from ^R everywhere (it keeps
+# its file/cd widgets), then atuin takes ^R in all keymaps.
 zvm_after_init_commands+=(
+  'source "$ZDOTDIR/plugins/fzf-tab/fzf-tab.plugin.zsh"'
   'source /usr/share/zsh/plugins/fzf/key-bindings.zsh'
   'source /usr/share/zsh/plugins/fzf/completion.zsh'
-  'eval "$(atuin init zsh)"'
+  'bindkey -r -M emacs "^R"'
+  'bindkey -r -M viins "^R"'
+  'bindkey -r -M vicmd "^R"'
+  'eval "$(atuin init zsh --disable-up-arrow)"'
+  'bindkey -M vicmd "^R" atuin-search-vicmd'
+  'bindkey -r -M emacs "^T"'
+  'bindkey -r -M viins "^T"'
+  'bindkey -r -M vicmd "^T"'
+  'bindkey -M emacs "^F" fzf-file-widget'
+  'bindkey -M viins "^F" fzf-file-widget'
+  'bindkey -M vicmd "^F" fzf-file-widget'
+  'bindkey -r -M emacs "\ec"'
+  'bindkey -r -M viins "\ec"'
+  'bindkey -r -M vicmd "\ec"'
+  'bindkey -M emacs "^D" fzf-cd-widget'
+  'bindkey -M viins "^D" fzf-cd-widget'
+  'bindkey -M vicmd "^D" fzf-cd-widget'
 )
+
+# `jk` escapes to normal mode (read before plugin init).
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 source "$ZDOTDIR/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
 # ---------------------------------------------------------------------------
-# Atuin (shell history)
+# Atuin (Ctrl-R opens its TUI; Up-arrow stays fully native, no atuin UI)
 # ---------------------------------------------------------------------------
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
