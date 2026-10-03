@@ -56,14 +56,22 @@ base04 133 133 133
 base05 178 178 178
 base06 207 207 207
 base07 255 255 255
-base08 202 103 137
-base09 218 132 114
-base0A 234 181 50
-base0B 110 154 93
-base0C 89 170 144
-base0D 8 142 175
-base0E 111 95 195
-base0F 164 127 198
+base08 188 51 110
+base09 167 80 3
+base0A 128 119 4
+base0B 54 119 2
+base0C 6 134 128
+base0D 3 110 166
+base0E 79 92 209
+base0F 163 64 166
+base10 255 166 194
+base11 255 175 127
+base12 211 200 80
+base13 153 217 124
+base14 21 225 215
+base15 137 204 254
+base16 178 192 254
+base17 243 163 244
 EOF
 }
 
@@ -140,8 +148,8 @@ selection() {
 	printf 'light  '
 	printf '\033[48;2;178;178;178m\033[38;2;0;0;0m selected text sample \033[0m\n'
 	printf 'accent '
-	printf '\033[48;2;234;181;50m\033[38;2;0;0;0m dark accent base0A \033[0m '
-	printf '\033[48;2;8;142;175m\033[38;2;255;255;255m light accent base0D \033[0m\n'
+	printf '\033[48;2;255;175;127m\033[38;2;0;0;0m dark accent base11 \033[0m '
+	printf '\033[48;2;3;110;166m\033[38;2;255;255;255m light accent base0D \033[0m\n'
 }
 
 header 'colors'
