@@ -1,8 +1,8 @@
 # chroma theme for delta (docs/colorscheme.md).
 # Monochromatic UI; semantic colors only convey information.
-# Activo por defecto: chroma-dark. Para la variante clara cambia
-# `features` a chroma-light (y quita `light = false` de ~/.gitconfig,
-# el tema ya fija light/dark por variante).
+# chroma-dark is default. For the light variant set `features`
+# to chroma-light (drop `light = false` from ~/.gitconfig,
+# the theme already pins light/dark per variant).
 [delta]
 	features = chroma-dark
 	navigate = true
