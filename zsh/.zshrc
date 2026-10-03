@@ -163,3 +163,18 @@ source "$ZDOTDIR/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 eval "$(atuin init zsh --disable-up-arrow)"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Valid commands in plain foreground (bold), not green.
+ZSH_HIGHLIGHT_STYLES[command]='fg=#b2b2b2,bold'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#b2b2b2,bold'
+ZSH_HIGHLIGHT_STYLES[function]='fg=#b2b2b2,bold'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#b2b2b2,bold'
+ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=#b2b2b2,bold'
+# These modify what follows; keep the underline cue, drop the green hue.
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#b2b2b2,bold,underline'
+ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=#b2b2b2,bold,underline'
+ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=#b2b2b2,bold,underline'
+# Quoted strings in accent (chroma base11 dark; light variant would be base0D #036ea6).
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=#ffaf7f'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=#ffaf7f'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=#ffaf7f'
