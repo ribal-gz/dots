@@ -1,0 +1,22 @@
+# chroma theme for the atuin search UI (docs/colorscheme.md, dark variant).
+# Same coverage as catppuccin/atuin: chrome meanings plus syntax colors.
+# Monochromatic UI with semantic accents; metadata muted.
+# atuin file themes carry foreground colors only (no bold/italic/reverse).
+[theme]
+name = "chroma"
+
+[colors]
+AlertInfo = "#434343"
+AlertWarn = "#d3c850"
+AlertError = "#ffa6c2"
+Annotation = "#434343"
+Base = "#b2b2b2"
+Guidance = "#434343"
+Important = "#ffffff"
+Title = "#b2c0fe"
+SyntaxCommand = "#ffffff"
+SyntaxFlag = "#858585"
+SyntaxString = "#ffaf7f"
+SyntaxVariable = "#ffaf7f"
+SyntaxOperator = "#858585"
+SyntaxComment = "#434343"
