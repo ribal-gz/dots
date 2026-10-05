@@ -1,0 +1,108 @@
+/* chroma theme, dark variant (docs/colorscheme.md).
+   Global for every GTK4 app, vimb included: its notebook tabs and context
+   menus are drawn by GTK, not by vimb's own -css options.
+   Monochromatic surfaces; the accent marks the active tab and menu hover. */
+
+:root {
+    --accent-color: #ffaf7f;
+    --accent-bg-color: #ffaf7f;
+    --accent-fg-color: #000000;
+}
+
+notebook,
+notebook header,
+notebook header tabs {
+    background: #000000;
+    border: none;
+    min-height: 24px;
+}
+
+notebook header tab {
+    background: #000000;
+    color: #858585;
+    border: none;
+    border-radius: 0;
+    box-shadow: inset 0 -2px #434343;
+    padding: 2px 8px;
+    margin: 0;
+    min-height: 22px;
+    transition: background-color 120ms ease-out,
+                color 120ms ease-out,
+                box-shadow 120ms ease-out;
+}
+
+/* Keyboard focus. Without this, tabnext/tabprev moved the selection with no
+   visual cue at all; outline-offset -2px keeps the ring inside the tab so it
+   does not change the header height. */
+notebook header tab:focus {
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: #cfcfcf;
+    outline-offset: -2px;
+}
+
+notebook header tab:hover {
+    background: #0a0a0a;
+    color: #b2b2b2;
+}
+
+notebook header tab:checked {
+    background: #000000;
+    color: #ffaf7f;
+    box-shadow: inset 0 -2px #ffaf7f;
+}
+
+notebook header tab label {
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    font: 11px monospace;
+}
+
+/* Bold on the active tab: the accent underline is the only colour cue, so give
+   it a non-colour channel too. Needs its own rule because the font: shorthand
+   above resets font-weight. */
+notebook header tab:checked label {
+    font-weight: bold;
+}
+
+/* Context menu */
+
+popover.menu,
+popover.background.menu,
+popover contents,
+menu {
+    background: #000000;
+    color: #b2b2b2;
+    border: 1px solid #434343;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+popover.menu modelbutton,
+menuitem {
+    background: transparent;
+    color: #b2b2b2;
+    border-radius: 0;
+    padding: 4px 10px;
+    min-height: 20px;
+}
+
+popover.menu modelbutton:hover,
+popover.menu modelbutton:selected,
+menuitem:hover,
+menuitem:selected {
+    background: #1e1e1e;
+    color: #ffaf7f;
+}
+
+popover.menu separator,
+menu separator {
+    background: #434343;
+    margin: 2px 0;
+}
+
+popover.menu accelerator,
+menuitem accelerator {
+    color: #858585;
+}
