@@ -4,3 +4,6 @@
 [submodule "zsh/plugins/fzf-tab"]
 	path = zsh/plugins/fzf-tab
 	url = https://github.com/Aloxaf/fzf-tab
+[submodule "mpv/plugins/ModernZ"]
+	path = mpv/plugins/ModernZ
+	url = https://github.com/Samillion/ModernZ.git
