@@ -1,0 +1,135 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+palette = "chroma-dark"
+
+# user@host. dir [exit]❯        (git branch on the right, like yash)
+format = """
+[${username}](fg:accent)\
+[@${hostname}](fg:accent)\
+[ ](fg:base05)\
+[${directory}](fg:info)\
+[${status}](fg:error)\
+${character}"""
+
+right_format = "[${git_branch}](fg:success)"
+
+add_newline = false
+
+# NOTE: starship palette keys must be lowercase (base0a, not base0A).
+# Palette from docs/colorscheme.md
+# Two variants sharing canonical base00-base17; semantic aliases resolve
+# to the bright range (base10-17) in dark and normal (base08-0F) in light:
+# - dark:  error=base10 red, warning=base12 yellow, success=base13 green,
+#          info=base14 cyan, accent=base11 orange
+# - light: error=base08 red, warning=base0A yellow, success=base0B green,
+#          info=base0C cyan, accent=base0D blue
+[palettes.chroma-dark]
+base00 = "#000000"
+base01 = "#0a0a0a"
+base02 = "#1e1e1e"
+base03 = "#434343"
+base04 = "#858585"
+base05 = "#b2b2b2"
+base06 = "#cfcfcf"
+base07 = "#ffffff"
+base08 = "#bc336e"
+base09 = "#a75003"
+base0a = "#807704"
+base0b = "#367702"
+base0c = "#068680"
+base0d = "#036ea6"
+base0e = "#4f5cd1"
+base0f = "#a340a6"
+base10 = "#ffa6c2"
+base11 = "#ffaf7f"
+base12 = "#d3c850"
+base13 = "#99d97c"
+base14 = "#15e1d7"
+base15 = "#89ccfe"
+base16 = "#b2c0fe"
+base17 = "#f3a3f4"
+accent = "#ffaf7f"
+error = "#ffa6c2"
+warning = "#d3c850"
+success = "#99d97c"
+info = "#15e1d7"
+
+[palettes.chroma-light]
+base00 = "#000000"
+base01 = "#0a0a0a"
+base02 = "#1e1e1e"
+base03 = "#434343"
+base04 = "#858585"
+base05 = "#b2b2b2"
+base06 = "#cfcfcf"
+base07 = "#ffffff"
+base08 = "#bc336e"
+base09 = "#a75003"
+base0a = "#807704"
+base0b = "#367702"
+base0c = "#068680"
+base0d = "#036ea6"
+base0e = "#4f5cd1"
+base0f = "#a340a6"
+base10 = "#ffa6c2"
+base11 = "#ffaf7f"
+base12 = "#d3c850"
+base13 = "#99d97c"
+base14 = "#15e1d7"
+base15 = "#89ccfe"
+base16 = "#b2c0fe"
+base17 = "#f3a3f4"
+accent = "#036ea6"
+error = "#bc336e"
+warning = "#807704"
+success = "#367702"
+info = "#068680"
+
+[username]
+show_always = true
+format = "[$user]($style)"
+style_user = "fg:accent"
+style_root = "fg:error"
+disabled = false
+
+[hostname]
+ssh_only = false
+format = "[$hostname]($style)"
+style = "fg:accent"
+disabled = false
+
+[directory]
+truncation_length = 1
+truncate_to_repo = false
+format = "[$path]($style)[$read_only]($read_only_style) "
+style = "fg:info"
+read_only = " 󰌾"
+read_only_style = "fg:warning"
+
+[git_branch]
+symbol = ""
+format = "[$symbol$branch]($style) "
+style = "fg:success"
+
+[status]
+format = "[$status]($style) "
+style = "fg:error"
+disabled = false
+
+[git_status]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+[character]
+success_symbol = "[❯](fg:base05) "
+error_symbol = "[❯](fg:base05) "
+vimcmd_symbol = "[❮](fg:base05) "
+vimcmd_visual_symbol = "[❮](fg:base05) "
+vimcmd_replace_symbol = "[❮](fg:base05) "
+
+[os]
+disabled = true
+
+[line_break]
+disabled = true
