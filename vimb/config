@@ -1,0 +1,22 @@
+set stylesheet=on
+set dark-mode=on
+set home-page=https://duckduckgo.com/
+set input-autohide=true
+
+# chroma theme, dark variant (docs/colorscheme.md).
+# Monochromatic surfaces; semantic colors only where they carry information
+# (SSL state, error state, completion selection uses the accent).
+# Light variant: swap #000000->#ffffff (bg), #b2b2b2->#1e1e1e (fg),
+# #1e1e1e->#b2b2b2 (selection bg), #0a0a0a->#cfcfcf (surface),
+# #ffaf7f->#036ea6 (accent), #ffa6c2->#bc336e (red), #99d97c->#367702 (green).
+
+set input-css=background-color:#000000;color:#b2b2b2;font:12px monospace;border:none;padding:4px;
+set input-error-css=background-color:#000000;color:#ffa6c2;font:12px monospace;border:none;padding:4px;
+
+set status-css=background-color:#000000;color:#b2b2b2;font:12px monospace;padding:2px;
+set status-ssl-css=background-color:#000000;color:#99d97c;font:12px monospace;padding:2px;
+set status-ssl-invalid-css=background-color:#000000;color:#ffa6c2;font:12px monospace;padding:2px;
+
+set completion-css=background-color:#000000;color:#b2b2b2;padding:2px;
+set completion-selected-css=background-color:#1e1e1e;color:#ffaf7f;padding:2px;
+set completion-hover-css=background-color:#0a0a0a;color:#b2b2b2;padding:2px;

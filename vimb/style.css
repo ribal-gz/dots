@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Vimb user stylesheet
+   chroma theme, dark variant (docs/colorscheme.md)
+   ========================================================================== */
+
+/* Global fallback */
+html,
+body {
+    background: #000000 !important;
+    color: #b2b2b2 !important;
+}
+
+:root {
+    color-scheme: dark;
+}
