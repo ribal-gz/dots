@@ -1,0 +1,30 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "chroma",
+    "mode": "dark"
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "auto",
+    "scrollbar": false,
+    "thinking": "show"
+  },
+  "animations": true,
+  "plugins": [
+    {
+      "package": "opencode-vim@latest",
+      "options": {
+        "vim": {
+          "defaultMode": "insert",
+          "sessionKey":  "Q",
+          "keymaps": {
+            "insert": { "jk": "normal" }
+          }
+        }
+      }
+    }
+  ]
+}
