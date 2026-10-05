@@ -1,0 +1,103 @@
+# chroma theme for btop (docs/colorscheme.md), dark variant.
+#
+# UI is monochromatic: boxes, dividers, text all come from base00-base07.
+# Semantic colors only appear where they encode a measurement, and they come
+# from the bright range (base10-base17) because this is the dark variant.
+#
+# Meters are flat single colors rather than gradients: the palette has one
+# color per hue, so a gradient would mean inventing intermediate values.
+# Only the two true scales (CPU load, temperature) get gradients, because
+# those are exactly the cases with three palette colors to step through.
+
+# --- UI -------------------------------------------------------------------
+
+# Main background. Empty would fall back to the terminal background, which is
+# also base00 in foot, but being explicit keeps btop correct on its own.
+theme[main_bg]="#000000"
+
+# Main text color
+theme[main_fg]="#b2b2b2"
+
+# Title color for boxes
+theme[title]="#cfcfcf"
+
+# Highlight color for keyboard shortcuts. The accent is the one semantic color
+# allowed as general UI, and shortcuts are pure UI.
+theme[hi_fg]="#ffaf7f"
+
+# Background color of selected items
+theme[selected_bg]="#1e1e1e"
+
+# Foreground color of selected items. Accent on the selection surface, the same
+# pairing used for the vimb completion and the mango group bar focus.
+theme[selected_fg]="#ffaf7f"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#434343"
+
+# Color of text appearing on top of graphs, i.e uptime and current network graph scaling
+theme[graph_text]="#858585"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph
+# and details status text. This is metadata, so it stays secondary, not a
+# semantic color.
+theme[proc_misc]="#858585"
+
+# Box outlines: visible enough to read as containers.
+theme[cpu_box]="#858585"
+theme[mem_box]="#858585"
+theme[net_box]="#858585"
+theme[proc_box]="#858585"
+
+# Internal dividers recede below the outlines that contain them.
+theme[div_line]="#434343"
+
+# --- Scales ---------------------------------------------------------------
+
+# CPU graph: load, so the green -> warning -> error ramp.
+theme[cpu_start]="#99d97c"
+theme[cpu_mid]="#d3c850"
+theme[cpu_end]="#ffa6c2"
+
+# Temperature graph: cold -> warm -> hot. Blue rather than the CPU ramp's
+# green so the two scales stay distinguishable at a glance.
+theme[temp_start]="#89ccfe"
+theme[temp_mid]="#d3c850"
+theme[temp_end]="#ffa6c2"
+
+# --- Memory / disk meters -------------------------------------------------
+
+# Mem/Disk free meter
+theme[free_start]="#99d97c"
+theme[free_mid]=""
+theme[free_end]=""
+
+# Mem/Disk cached meter
+theme[cached_start]="#89ccfe"
+theme[cached_mid]=""
+theme[cached_end]=""
+
+# Mem/Disk available meter. Accent because this is the number worth watching.
+theme[available_start]="#ffaf7f"
+theme[available_mid]=""
+theme[available_end]=""
+
+# Mem/Disk used meter
+theme[used_start]="#ffa6c2"
+theme[used_mid]=""
+theme[used_end]=""
+
+# --- Network --------------------------------------------------------------
+
+# Neither direction is good or bad, they only have to be told apart, so two
+# adjacent informational hues rather than two semantic ones.
+
+# Download graph colors
+theme[download_start]="#15e1d7"
+theme[download_mid]=""
+theme[download_end]=""
+
+# Upload graph colors
+theme[upload_start]="#b2c0fe"
+theme[upload_mid]=""
+theme[upload_end]=""
