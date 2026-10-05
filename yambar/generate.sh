@@ -19,11 +19,13 @@ TIME=$(printf '\xEF\x80\x97')     # time (fa-clock-o)
 ICONS="$TAG0 $TAG1 $TAG2 $TAG3 $TAG4 $TAG5 $TAG6 $TAG7 $TAG8"
 TAG_NUMS="1 2 3 4 5 6 7 8 9"
 
-# Colorscheme: chroma (dark)
+# Colorscheme: chroma (dark, docs/colorscheme.md)
 #   base00 000000  base01 0a0a0a  base02 1e1e1e  base03 434343
 #   base04 858585  base05 b2b2b2  base06 cfcfcf  base07 ffffff
-#   base08 ca6789  base09 da8472  base0A eab532  base0B 6e9a5d
-#   base0C 59aa90  base0D 088eaf  base0E 6f5fc3  base0F a47fc6
+#   base08 bc336e  base09 a75003  base0A 807704  base0B 367702
+#   base0C 068680  base0D 036ea6  base0E 4f5cd1  base0F a340a6
+#   base10 ffa6c2  base11 ffaf7f  base12 d3c850  base13 99d97c
+#   base14 15e1d7  base15 89ccfe  base16 b2c0fe  base17 f3a3f4
 C_BG=000000ff        # base00 bg
 C_SURFACE=0a0a0aff   # base01 surface
 C_SEL=1e1e1eff       # base02 selection
@@ -32,15 +34,15 @@ C_FG2=858585ff       # base04 fg-secondary
 C_FG=b2b2b2ff        # base05 fg
 C_FGHI=cfcfcfff      # base06 fg-highlight
 C_FGMAX=ffffffff     # base07 fg-max (occupied)
-C_RED=ca6789ff       # base08 urgent
-C_ORANGE=da8472ff    # base09
-C_YELLOW=eab532ff    # base0A accent
-C_GREEN=6e9a5dff     # base0B date
-C_CYAN=59aa90ff      # base0C time
-C_BLUE=088eafff      # base0D updates
-C_VIOLET=6f5fc3ff    # base0E
-C_MAGENTA=a47fc6ff   # base0F memory
-C_ACCENT=$C_YELLOW
+C_RED=ffa6c2ff       # base10 red-error (dark uses bright)
+C_ORANGE=ffaf7fff    # base11 dark accent
+C_YELLOW=d3c850ff    # base12 yellow-warning
+C_GREEN=99d97cff     # base13 green-success (date)
+C_CYAN=15e1d7ff      # base14 cyan-info (time)
+C_BLUE=89ccfeff      # base15 blue (updates)
+C_VIOLET=b2c0feff     # base16 violet
+C_MAGENTA=f3a3f4ff   # base17 magenta (memory)
+C_ACCENT=$C_ORANGE
 
 gen_file() {
     MONITOR=$1 FILE=$2 PXSIZE=$3 HEIGHT=$4 MARGIN=$5 SPACING=$6
