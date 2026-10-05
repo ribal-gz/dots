@@ -1,5 +1,8 @@
 # chroma theme for delta (docs/colorscheme.md).
 # Monochromatic UI; semantic colors only convey information.
+# Here that means: no background tint on diff lines. The sign is carried by
+# the foreground instead (removed = red, added = green), which also keeps
+# comments readable since they no longer sit on a tinted surface.
 # chroma-dark is default. For the light variant set `features`
 # to chroma-light (drop `light = false` from ~/.gitconfig,
 # the theme already pins light/dark per variant).
@@ -14,14 +17,21 @@
 	file-style = "#ffffff bold"
 	file-decoration-style = "#434343"
 	hunk-header-style = "#858585 line-number"
-	hunk-header-line-number-style = "#15e1d7"
-	hunk-header-decoration-style = "#1e1e1e"
+	hunk-header-line-number-style = "#858585"
+	# The navigate feature prefixes every hunk with a bullet painted with
+	# hunk-header-file-style; without this delta falls back to ANSI blue.
+	hunk-header-file-style = "#434343"
+	hunk-header-decoration-style = omit
 	commit-style = "#cfcfcf bold"
 	zero-style = syntax
-	minus-style = syntax "#2b0e18"
-	minus-emph-style = syntax "#571026" bold
-	plus-style = syntax "#0b2b14"
-	plus-emph-style = syntax "#104d22" bold
+	# Without a background an added/removed empty line would be invisible;
+	# delta's own empty-line marker is dead code in 0.19.2, so re-insert the
+	# git markers instead. They reuse the same red/green, no extra colors.
+	keep-plus-minus-markers = true
+	minus-style = "#ffa6c2"
+	minus-emph-style = "#ffa6c2 bold"
+	plus-style = "#99d97c"
+	plus-emph-style = "#99d97c bold"
 	line-numbers-minus-style = "#ffa6c2"
 	line-numbers-plus-style = "#99d97c"
 	line-numbers-zero-style = "#434343"
@@ -30,6 +40,8 @@
 	grep-line-number-style = "#434343"
 	grep-match-line-style = "#1e1e1e #d3c850"
 	grep-match-word-style = "#000000 #d3c850"
+	whitespace-error-style = reverse "#ffa6c2"
+	blame-palette = "#0a0a0a #1e1e1e #434343"
 
 [delta "chroma-light"]
 	light = true
@@ -37,14 +49,16 @@
 	file-style = "#000000 bold"
 	file-decoration-style = "#858585"
 	hunk-header-style = "#1e1e1e line-number"
-	hunk-header-line-number-style = "#068680"
-	hunk-header-decoration-style = "#b2b2b2"
+	hunk-header-line-number-style = "#1e1e1e"
+	hunk-header-file-style = "#858585"
+	hunk-header-decoration-style = omit
 	commit-style = "#0a0a0a bold"
 	zero-style = syntax
-	minus-style = syntax "#f6dce5"
-	minus-emph-style = syntax "#eec0d0" bold
-	plus-style = syntax "#e0ecd6"
-	plus-emph-style = syntax "#c4ddb2" bold
+	keep-plus-minus-markers = true
+	minus-style = "#bc336e"
+	minus-emph-style = "#bc336e bold"
+	plus-style = "#367702"
+	plus-emph-style = "#367702 bold"
 	line-numbers-minus-style = "#bc336e"
 	line-numbers-plus-style = "#367702"
 	line-numbers-zero-style = "#858585"
@@ -53,3 +67,5 @@
 	grep-line-number-style = "#858585"
 	grep-match-line-style = "#000000 #807704"
 	grep-match-word-style = "#000000 #807704"
+	whitespace-error-style = reverse "#bc336e"
+	blame-palette = "#cfcfcf #b2b2b2 #858585"
