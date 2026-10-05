@@ -2,17 +2,17 @@ export BEMENU_OPTS="                     \
 	--binding vim                    \
 	--vim-esc-exits                  \
 	--fn  'DejaVu Sans Mono 10'      \
-	--tb  '#000000' --tf  '#fff1c3'  \
-	--fb  '#000000' --ff  '#ffffff'  \
-	--cb  '#000000' --cf  '#ffffff'  \
-	--nb  '#000000' --nf  '#616161'  \
-	--hb  '#000000' --hf  '#fff1c3'  \
-	--fbb '#000000' --fbf '#ffffff'  \
-	--sb  '#ffffff' --sf  '#000000'  \
-	--ab  '#000000' --af  '#616161'  \
-	--scb '#000000' --scf '#fff1c3'  \
+	--tb  '#000000' --tf  '#ffaf7f'  \
+	--fb  '#000000' --ff  '#cfcfcf'  \
+	--cb  '#cfcfcf' --cf  '#000000'  \
+	--nb  '#000000' --nf  '#858585'  \
+	--hb  '#1e1e1e' --hf  '#ffffff'  \
+	--fbb '#000000' --fbf '#858585'  \
+	--sb  '#ffaf7f' --sf  '#000000'  \
+	--ab  '#0a0a0a' --af  '#858585'  \
+	--scb '#000000' --scf '#434343'  \
 "
 
 pass_menu() {
-	echo "" | bemenu -x -p "PASS" --tb "#000000" --tf "#ff7595"
+	echo "" | bemenu -x -p "PASS" --tb "#000000" --tf "#ffaf7f"
 }

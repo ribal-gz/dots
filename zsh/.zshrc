@@ -25,6 +25,10 @@ setopt APPEND_HISTORY SHARE_HISTORY HIST_IGNORE_DUPS HIST_REDUCE_BLANKS
 # Aliases
 # ---------------------------------------------------------------------------
 [ -f "$HOME/.config/shell/alias" ] && . "$HOME/.config/shell/alias"
+
+# bemenu theme + pass_menu helper (mango spawns without BEMENU_OPTS, and
+# session.env only reaches winitrc children, so load it per shell).
+[ -r "$HOME/.config/bemenu/config" ] && . "$HOME/.config/bemenu/config"
 alias reload="source ${ZDOTDIR}/.zshrc && rehash"
 
 # ---------------------------------------------------------------------------

@@ -32,4 +32,9 @@ export DOAS_ASKPASS=askpass
 export PAGER="${PAGER:-bat}"
 export EDITOR="${EDITOR:-nvim}"
 
+# bemenu theme and helpers, also used in tty (curses backend).
+# Sourced (not inlined) so shell rc files and session.env share one copy.
+# Reaches mango through the agreety login shell.
+[ -r "$HOME/.config/bemenu/config" ] && . "$HOME/.config/bemenu/config"
+
 . "$HOME/.cargo/env"
